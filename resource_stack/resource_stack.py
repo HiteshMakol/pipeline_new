@@ -12,17 +12,17 @@ class ResourceStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
         queue = sqs.Queue(
-            self, "AWSCDKCodePipelineappDemoQueue",
+            self, "AWSCDKCodePipelineappDemoQueuee_new",
             visibility_timeout=Duration.seconds(300),
             queue_name="demo_queuee"
         )
         function = function_lambda.Function(self,
                                             "DemoCDKGITHUBLambda",
-                                            function_name="codepipeline_lambdaaaa",
+                                            function_name="codepipeline_lambdaa_new",
                                             runtime=function_lambda.Runtime.PYTHON_3_9,
                                             code=function_lambda.Code.from_asset('./lambda_code_demo'),
                                             handler="demo_lambda.lambda_handler")
 
         bucket = s3.Bucket(self, "MyfirstBucket", versioned=True,
-                           bucket_name="tests3bucketasof26july2255555",
+                           bucket_name="tests3bucketasof26july2255555new",
                            block_public_access=s3.BlockPublicAccess.BLOCK_ALL)

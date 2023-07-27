@@ -34,7 +34,7 @@ from resource_stack.resource_stack import ResourceStack
 class DeployStage(Stage):
     def __init__(self, scope: Construct, id: str, env: Environment, **kwargs) -> None:
         super().__init__(scope, id, env=env, **kwargs)
-        ResourceStack(self, 'ResourceStack', env=env, stack_name="resource-stack-deploy")
+        ResourceStack(self, 'ResourceStack', env=env, stack_name="resource-stack-deploy-latest")
 
 
 class AwsCodepipelineStack(Stack):
@@ -50,7 +50,7 @@ class AwsCodepipelineStack(Stack):
 
         code_pipeline = codepipeline.Pipeline( # build
             self, "Pipeline",
-            pipeline_name="new-pipeline",
+            pipeline_name="new-pipeline-new",
             cross_account_keys=False
         )
 
